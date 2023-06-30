@@ -1,25 +1,7 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import './css/styles.css';
-
-// Business Logic
-
-function getWeather(searchInput) {
-    let request = new XMLHttpRequest();
-    const url = `https://api.giphy.com/v1/gifs/search?q=${searchInput}&api_key=${process.env.API_KEY}`;
-    request.addEventListener("loadend", function () {
-        const response = JSON.parse(this.responseText);
-        if (this.status === 200) {
-            printElements(response, searchInput);
-        } else {
-            printError(this, response, searchInput);
-        }
-    });
-    request.open("GET", url, true);
-    request.send();
-    request.addEventListener("readystatechange", function () {
-    });
-}
+import '../css/styles.css';
+import ApiRequest from './ApiRequest.js'
 
 // UI Logic
 
