@@ -1,6 +1,4 @@
-// import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import '../css/styles.css';
+import '../css/styles.css';
 // import apiRequest from './apiRequest.js';
 
 // //Get elements
