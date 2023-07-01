@@ -1,6 +1,6 @@
 import '../css/styles.css';
+import apiRequest from './apiRequest.js';
 
-console.log('loaded');
 
 //Get elements
 let firstCurrencyEl = document.querySelector('#first-currency');
