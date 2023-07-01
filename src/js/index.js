@@ -1,31 +1,34 @@
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/styles.css';
-import apiRequest from './apiRequest.js';
+// import 'bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import '../css/styles.css';
+// import apiRequest from './apiRequest.js';
 
-//Get elements
+// //Get elements
+// const displayDiv = document.querySelector('#display');
+// let errorElement = document.querySelector('#error');
 
+// //Defualt static vars
+// let amount = 0;
+// let firstCurrency = 'USD';
+// let secondCurrency = 'EUR';
 
-//Defualt static vars
-let amount = 0;
-let firstCurrency = 'USD';
-let secondCurrency = 'EUR';
+// function dataHandeler() {
+//     apiRequest.getRate()
+//         .then(function (response) {
+//             if (response.conversion_rates) {
+//                 // printResult(response, firstCurrency, secondCurrency);
+//                 console.log(response);
+//             } else {
+//                 // printError(response)
+//                 console.log('problem');
+//             }
+//         })
+// }
 
-const dataHandeler = () => {
-    apiRequest.getRate(amount, firstCurrency, secondCurrency)
-        .then(function (response) {
-            if (response.conversion_rates) {
-                printResult(response, firstCurrency, secondCurrency)
-            } else {
-                printError(response)
-            }
-        })
-}
+// function printResult(response, firstCurrency, secondCurrency) {
 
-printResult(response, firstCurrency, secondCurrency) => {
+// }
 
-}
-
-printError(error) => {
-
-}
+// function printError(error) {
+//     errorElement.innerText = `Error: ${error}`
+// }
