@@ -1,7 +1,7 @@
 import '../css/styles.css';
 
-function getRate() {
-    fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
+function getRate(firstCurrencyVal) {
+    fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${firstCurrencyVal}`)
         .then((response) => {
             if (!response.ok) {
                 const errorMessage = `${response.status} ${response.statusText}`;
@@ -11,11 +11,11 @@ function getRate() {
             }
         })
         .then((data) => {
-            console.log(data);
+            console.log(data.conversion_rates);
         })
 }
 
-getRate();
+
 
 
 //Get elements
@@ -31,14 +31,16 @@ function calculate() {
 
     console.log('currency1: ' + firstCurrencyVal);
     console.log('currency2: ' + secondCurrencyVal);
+
+    getRate(firstCurrencyVal);
 }
 
 
 //Event listener
 firstCurrencyEl.addEventListener('change', calculate);
-firstAmountEl.addEventListener('change', calculate);
+firstAmountEl.addEventListener('input', calculate);
 secondCurrencyEl.addEventListener('change', calculate);
-secondAmountEl.addEventListener('change', calculate);
+secondAmountEl.addEventListener('input', calculate);
 
 
 calculate();
