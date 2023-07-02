@@ -51,5 +51,3 @@ function manipDOM(data, firstCurrencyVal, firstRate, secondCurrencyVal, secondRa
 firstCurrencyEl.addEventListener('change', calculate);
 firstAmountEl.addEventListener('input', calculate);
 secondCurrencyEl.addEventListener('change', calculate);
-
-calculate();
