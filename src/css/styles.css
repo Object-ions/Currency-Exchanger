@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -16,16 +16,28 @@ body {
 }
 
 h1 {
-    /* color: #f8d669; */
     color: #4c555f;
     background-color: #f3f3f3;
     text-align: center;
     padding: 10px 0;
+    font-weight: 700;
+}
+
+h3 {
+    background-color: #f3f3f3;
+    font-weight: 700;
+    color: #ffce2c;
+    padding: 5px 0;
+    text-align: center;
 }
 
 img {
     margin: 0 auto;
     height: 200px;
+}
+
+em {
+    font-weight: 400;
 }
 
 .currency {
@@ -34,4 +46,12 @@ img {
 
 select:focus {
     outline: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#display {
+    width: 250px;
 }

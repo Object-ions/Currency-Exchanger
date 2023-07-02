@@ -17,7 +17,7 @@
 
         <!-- main -->
         <div class="currency">
-            <input id="-display" type="number" placeholder="1" value="1">
+            <input id="first-amount" type="number" placeholder="1" value="1">
             <select id="first-currency">
                 <option value="USD" selected>USD</option>
                 <option value="AED">AED</option>
@@ -132,7 +132,7 @@
         </div>
 
         <!-- display -->
-        <div id="display">
+        <div id="display" class="hidden">
             <small id="error"></small>
             <p>as for this date: <em id="date">{$date}</em></p>
             <p><em id="first-amount-display">{$amount}</em> of <em id="first-currency-display"> {$currency1} </em> are
