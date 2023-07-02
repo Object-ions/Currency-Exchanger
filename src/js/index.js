@@ -11,16 +11,15 @@ function getRate(firstCurrencyVal, secondCurrencyVal) {
             }
         })
         .then((data) => {
-            // console.log(data);
+            console.log(data);
             let firstRate = data.conversion_rates[firstCurrencyVal];
             let secondRate = data.conversion_rates[secondCurrencyVal];
             console.log(firstCurrencyVal + ' ' + firstRate);
             console.log(secondCurrencyVal + ' ' + secondRate);
+
+            manipDOM(data);
         })
 }
-
-
-
 
 //Get elements
 let firstCurrencyEl = document.querySelector('#first-currency');
@@ -36,6 +35,17 @@ function calculate() {
     getRate(firstCurrencyVal, secondCurrencyVal);
 }
 
+
+function manipDOM(data, firstCurrencyVal, firstRate, secondCurrencyVal, secondRate) {
+    //Change date
+    document.getElementById('date').innerText = data.time_last_update_utc;
+    //Change first currency and amount
+    document.getElementById('first-amount-display').innerText = firstCurrencyVal;
+    document.getElementById('first-currency-display').innerText = firstRate;
+    //Change second currency and amount
+    document.getElementById('second-amount-display').innerText = secondCurrencyVal;
+    document.getElementById('second-currency-display').innerText = secondRate;
+}
 
 //Event listener
 firstCurrencyEl.addEventListener('change', calculate);

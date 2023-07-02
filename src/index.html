@@ -17,7 +17,7 @@
 
         <!-- main -->
         <div class="currency">
-            <input id="first-amount" type="number" placeholder="1" value="1">
+            <input id="-display" type="number" placeholder="1" value="1">
             <select id="first-currency">
                 <option value="USD" selected>USD</option>
                 <option value="AED">AED</option>
@@ -134,9 +134,11 @@
         <!-- display -->
         <div id="display">
             <small id="error"></small>
-            <em>on this {$date}</em>
-            <p>{$amount} of {$currency1} are equal to: </p>
-            <h3>{$amount} of {$currency2}</h3>
+            <p>as for this date: <em id="date">{$date}</em></p>
+            <p><em id="first-amount-display">{$amount}</em> of <em id="first-currency-display"> {$currency1} </em> are
+                equal to: </p>
+            <h3> <strong id="second-amount-display"> {$amount} </strong> of <strong id="second-currency-display">
+                    {$currency2} </strong></h3>
         </div>
     </div>
 </body>
