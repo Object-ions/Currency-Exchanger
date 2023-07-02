@@ -1,15 +1,17 @@
 export default class apiRequest {
   static getRate() {
-    fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
-      .then((response) => response.jason())
-      .then((data) => {
-        console.log(data)
+    return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
+      .then(function (response) {
+        if (!response.ok) {
+          const errorMessage = `${response.status} ${response.statusText}`;
+          console.log(errorMessage)
+          throw new Error(errorMessage);
+        } else {
+          return response.json();
+        }
       })
+      .catch((error) => {
+        return error;
+      });
   }
 }
-
-getRate();
-
-
-
-// errorMessage = `${response.status} ${response.statusText}`

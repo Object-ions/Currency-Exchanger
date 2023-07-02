@@ -1,5 +1,21 @@
 import '../css/styles.css';
-import apiRequest from './apiRequest.js';
+
+function getRate() {
+    fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
+        .then((response) => {
+            if (!response.ok) {
+                const errorMessage = `${response.status} ${response.statusText}`;
+                console.log(errorMessage);
+            } else {
+                return response.json();
+            }
+        })
+        .then((data) => {
+            console.log(data);
+        })
+}
+
+getRate();
 
 
 //Get elements
