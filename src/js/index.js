@@ -22,15 +22,18 @@ function getRate(firstCurrencyVal, secondCurrencyVal) {
 }
 
 //Get elements
-let firstCurrencyEl = document.querySelector('#first-currency');
 let firstAmountEl = document.querySelector('#first-amount');
+let firstCurrencyEl = document.querySelector('#first-currency');
 
-let secondCurrencyEl = document.querySelector('#second-currency');
 let secondAmountEl = document.querySelector('#second-amount');
+let secondCurrencyEl = document.querySelector('#second-currency');
 
 function calculate() {
     let firstCurrencyVal = firstCurrencyEl.value;
+    let firstAmountVal = firstAmountEl.value;
+
     let secondCurrencyVal = secondCurrencyEl.value;
+    let secondAmountVal = secondAmountEl.value;
 
     //show 'display' div with results
     document.getElementById('display').classList.remove('hidden');
@@ -39,22 +42,22 @@ function calculate() {
 }
 
 
-function manipDOM(data, firstCurrencyVal, firstRate, secondCurrencyVal, secondRate) {
-    //Change date
-    document.getElementById('date').innerText = data.time_last_update_utc;
-    //Change first currency and amount
-    document.getElementById('first-amount-display').innerText = firstRate;
-    document.getElementById('first-currency-display').innerText = firstCurrencyVal;
-    //Change second currency and amount
-    document.getElementById('second-amount-display').innerText = secondRate;
-    document.getElementById('second-currency-display').innerText = secondCurrencyVal;
-}
+// function manipDOM(data, firstCurrencyVal, firstRate, secondCurrencyVal, secondRate) {
+//     //Change date
+//     document.getElementById('date').innerText = data.time_last_update_utc;
+//     //Change first currency and amount
+//     document.getElementById('first-amount-display').innerText = firstRate;
+//     document.getElementById('first-currency-display').innerText = firstCurrencyVal;
+//     //Change second currency and amount
+//     document.getElementById('second-amount-display').innerText = secondRate;
+//     document.getElementById('second-currency-display').innerText = secondCurrencyVal;
+// }
 
-//Event listener
-firstCurrencyEl.addEventListener('change', calculate);
-firstAmountEl.addEventListener('input', calculate);
-secondCurrencyEl.addEventListener('change', calculate);
-secondAmountEl.addEventListener('input', calculate);
+// //Event listener
+// firstCurrencyEl.addEventListener('change', calculate);
+// firstAmountEl.addEventListener('input', calculate);
+// secondCurrencyEl.addEventListener('change', calculate);
+// secondAmountEl.addEventListener('input', calculate);
 
 
 calculate();
