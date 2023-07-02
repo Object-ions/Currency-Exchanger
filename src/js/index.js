@@ -1,6 +1,6 @@
 import '../css/styles.css';
 
-function getRate(firstCurrencyVal) {
+function getRate(firstCurrencyVal, secondCurrencyVal) {
     fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${firstCurrencyVal}`)
         .then((response) => {
             if (!response.ok) {
@@ -11,7 +11,11 @@ function getRate(firstCurrencyVal) {
             }
         })
         .then((data) => {
-            console.log(data.conversion_rates);
+            // console.log(data);
+            let firstRate = data.conversion_rates[firstCurrencyVal];
+            let secondRate = data.conversion_rates[secondCurrencyVal];
+            console.log(firstCurrencyVal + ' ' + firstRate);
+            console.log(secondCurrencyVal + ' ' + secondRate);
         })
 }
 
@@ -29,10 +33,7 @@ function calculate() {
     let firstCurrencyVal = firstCurrencyEl.value;
     let secondCurrencyVal = secondCurrencyEl.value;
 
-    console.log('currency1: ' + firstCurrencyVal);
-    console.log('currency2: ' + secondCurrencyVal);
-
-    getRate(firstCurrencyVal);
+    getRate(firstCurrencyVal, secondCurrencyVal);
 }
 
 
