@@ -6,8 +6,6 @@
 
 Currency Converter is a simple web application that allows users to convert between different currencies. It fetches the most up-to-date exchange rates from the ExchangeRate-API.
 
-_Live demo: [GH-pages](https://object-ions.github.io/beepboop/)_
-
 ## Technologies Used
 
 * _HTML_
