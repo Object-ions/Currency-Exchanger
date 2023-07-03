@@ -18,18 +18,18 @@ function getRate(firstCurrencyVal, secondCurrencyVal, firstAmountVal) {
             let convertedAmount = (firstAmountVal / firstRate) * secondRate;
             secondAmountEl.value = convertedAmount.toFixed(2);
 
+            //Show currency codes and rate
             document.getElementById('display-p').innerText = `1 ${firstCurrencyVal} = ${secondRate} ${secondCurrencyVal}`
 
-            manipDOM(data, firstCurrencyVal, firstRate, secondCurrencyVal, secondRate, firstAmountVal, convertedAmount);
+            //retrive data to the Dom
+            document.getElementById('date').innerText = data.time_last_update_utc;
         })
 }
 
 //Get DOM elements
 let swipe = document.getElementById('swipe');
-
 let firstAmountEl = document.querySelector('#first-amount');
 let firstCurrencyEl = document.querySelector('#first-currency');
-
 let secondAmountEl = document.querySelector('#second-amount');
 let secondCurrencyEl = document.querySelector('#second-currency');
 
@@ -45,17 +45,13 @@ function calculate() {
     getRate(firstCurrencyVal, secondCurrencyVal, firstAmountVal);
 }
 
-//Manipulate the DOM
-function manipDOM(data,) {
-    document.getElementById('date').innerText = data.time_last_update_utc;
-}
-
 //Event listeners (update calc)
 firstCurrencyEl.addEventListener('change', calculate);
 firstAmountEl.addEventListener('input', calculate);
 secondCurrencyEl.addEventListener('change', calculate);
 secondAmountEl.addEventListener('input', calculate);
 
+//Event listener on swipe
 swipe.addEventListener('click', () => {
     let temp = firstCurrencyEl.value;
     firstCurrencyEl.value = secondCurrencyEl.value;
