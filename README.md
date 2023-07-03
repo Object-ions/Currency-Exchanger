@@ -32,14 +32,17 @@ $ cd currency-converter
 ```bash
 $ npm install
 ```
+3. Visit the [ExchangeRate-API site](https://www.exchangerate-api.com/)
 
-3. Create a `.env` file in the root of your project and add your ExchangeRate-API key. The format should be like this:
+4. Input your email address and click the "Get Free Key" button.
+
+5. Create a `.env` file in the root of your project and add your ExchangeRate-API key. The format should be like this:
 
 ```bash
 API_KEY=your_api_key_number
 ```
 
-4. Run the application
+6. Run the application
 
 ```bash
 $ npm start
