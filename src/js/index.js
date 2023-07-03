@@ -46,14 +46,8 @@ function calculate() {
 }
 
 //Manipulate the DOM
-function manipDOM(data, firstCurrencyVal, secondCurrencyVal, firstAmountVal, convertedAmount) {
+function manipDOM(data,) {
     document.getElementById('date').innerText = data.time_last_update_utc;
-
-    document.getElementById('first-amount-display').innerText = firstAmountVal;
-    document.getElementById('first-currency-display').innerText = firstCurrencyVal;
-
-    document.getElementById('second-amount-display').innerText = convertedAmount.toFixed(2);
-    document.getElementById('second-currency-display').innerText = secondCurrencyVal;
 }
 
 //Event listeners (update calc)
