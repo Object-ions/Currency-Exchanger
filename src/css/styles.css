@@ -69,3 +69,7 @@ select:focus {
 #display {
     width: 250px;
 }
+
+#display-p {
+    color: #ffce2c;
+}

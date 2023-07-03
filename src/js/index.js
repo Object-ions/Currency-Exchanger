@@ -5,7 +5,8 @@ function getRate(firstCurrencyVal, secondCurrencyVal, firstAmountVal) {
         .then((response) => {
             if (!response.ok) {
                 const errorMessage = `${response.status} ${response.statusText}`;
-                console.log(errorMessage);
+                document.getElementById('main-head').innerText = errorMessage;
+                document.getElementById('main-p').innerText = 'ERROR';
             } else {
                 return response.json();
             }
@@ -16,6 +17,8 @@ function getRate(firstCurrencyVal, secondCurrencyVal, firstAmountVal) {
 
             let convertedAmount = (firstAmountVal / firstRate) * secondRate;
             secondAmountEl.value = convertedAmount.toFixed(2);
+
+            document.getElementById('display-p').innerText = `1 ${firstCurrencyVal} = ${secondRate} ${secondCurrencyVal}`
 
             manipDOM(data, firstCurrencyVal, firstRate, secondCurrencyVal, secondRate, firstAmountVal, convertedAmount);
         })
@@ -28,16 +31,18 @@ let secondAmountEl = document.querySelector('#second-amount');
 let secondCurrencyEl = document.querySelector('#second-currency');
 
 function calculate() {
+    //Get the value of the currnecy code
     let firstCurrencyVal = firstCurrencyEl.value;
-    let firstAmountVal = firstAmountEl.value;
-
     let secondCurrencyVal = secondCurrencyEl.value;
 
-    document.getElementById('display').classList.remove('hidden');
+    //Get the value of the amount
+    let firstAmountVal = firstAmountEl.value;
+    // let secondAmountVal = firstAmountEl.value;
 
     getRate(firstCurrencyVal, secondCurrencyVal, firstAmountVal);
 }
 
+//Manipulate the DOM
 function manipDOM(data, firstCurrencyVal, firstRate, secondCurrencyVal, secondRate, firstAmountVal, convertedAmount) {
     document.getElementById('date').innerText = data.time_last_update_utc;
 
@@ -48,6 +53,11 @@ function manipDOM(data, firstCurrencyVal, firstRate, secondCurrencyVal, secondRa
     document.getElementById('second-currency-display').innerText = secondCurrencyVal;
 }
 
+//Event listeners (update calc)
 firstCurrencyEl.addEventListener('change', calculate);
 firstAmountEl.addEventListener('input', calculate);
 secondCurrencyEl.addEventListener('change', calculate);
+secondAmountEl.addEventListener('input', calculate);
+
+//Ran the function initially
+calculate();
