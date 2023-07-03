@@ -26,13 +26,13 @@ _Live demo: [GH-pages](https://object-ions.github.io/beepboop/)_
 
 ```bash
 $ git clone https://github.com/Object-ions/Currency-Exchanger
-cd currency-converter
+$ cd currency-converter
 ```
 
 2. Install the dependencies
 
 ```bash
-npm install
+$ npm install
 ```
 
 3. Create a `.env` file in the root of your project and add your ExchangeRate-API key. The format should be like this:
@@ -44,7 +44,7 @@ API_KEY=your_api_key_number
 4. Run the application
 
 ```bash
-npm start
+$ npm start
 ```
 
 ## Known Bugs
