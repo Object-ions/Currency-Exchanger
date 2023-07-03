@@ -18,8 +18,10 @@ body {
 h1 {
     color: #4c555f;
     background-color: #f3f3f3;
+    border: solid #f3f3f3 1px;
+    border-radius: 5px;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 15px;
     font-weight: 700;
 }
 
@@ -40,6 +42,18 @@ em {
     font-weight: 400;
 }
 
+button {
+    margin-right: 20px;
+    text-transform: capitalize;
+}
+
+input {
+    text-align: center;
+    font-size: 20px;
+    width: 50%;
+    border: none;
+}
+
 .card {
     background-color: #fff;
     border-radius: 5px;
@@ -51,6 +65,12 @@ em {
 .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -71,5 +91,11 @@ select:focus {
 }
 
 #display-p {
-    color: #ffce2c;
+    font-size: 15px;
+    background-color: #ffce2c;
+    border: solid #ffce2c 1px;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
 }

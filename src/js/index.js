@@ -24,6 +24,7 @@ function getRate(firstCurrencyVal, secondCurrencyVal, firstAmountVal) {
         })
 }
 
+//Get elements
 let firstAmountEl = document.querySelector('#first-amount');
 let firstCurrencyEl = document.querySelector('#first-currency');
 
