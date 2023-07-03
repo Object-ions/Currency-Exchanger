@@ -1,41 +1,61 @@
-#  Title
+# Currency Converter
 
-#### By: Jason Elijah Church
+#### By **Moshe Atia Poston**
 
-#### Brief Description
+## Description
+
+Currency Converter is a simple web application that allows users to convert between different currencies. It fetches the most up-to-date exchange rates from the ExchangeRate-API.
+
+_Live demo: [GH-pages](https://object-ions.github.io/beepboop/)_
 
 ## Technologies Used
 
-* HTML
-* JavaScript
-* Markdown
-* CSS
-* Git Bash
-* Visual Code Studio
-* Node Package Manager
-* Webpack
-* ESLint
-* Jest
-* Babel
-
-## Description:
+* _HTML_
+* _CSS_
+* _JavaScript_
+* _Webpack_
+* _Babel_
+* _Fetch API_
+* _ExchangeRate-API_
 
 
-## Setup/ Installation Requirements
 
-* Clone this repository to your desktop.
-* In the topmost directory of the project, open up all of the code using Visual Code Studio or a similar application to view the written code.
-* If you have Node Package Manager installed on your computer and are running v16.13.1, you can enter npm install in the topmost directory of the project to install all the listed plug-ins in the package.json.
-* From there the webpage itself can be viewed by entering npm start in your console to open up a local live server.
+## Setup/Installation Requirements
+
+1. Clone the repository
+
+\```bash
+$ git clone https://github.com/Object-ions/Currency-Exchanger
+cd currency-converter
+\```
+
+2. Install the dependencies
+
+\```bash
+npm install
+\```
+
+3. Create a `.env` file in the root of your project and add your ExchangeRate-API key. The format should be like this:
+
+\```bash
+API_KEY=your_api_key_number
+\```
+
+4. Run the application
+
+\```bash
+npm start
+\```
 
 ## Known Bugs
 
+* No bugs known
 
 ## License
 
-MIT License
+[MIT License](https://choosealicense.com/licenses/mit/)
 
-Copyright (c) (2023) Jason Elijah Church
+Copyright (c) 2023 Moshe Atia Poston
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
