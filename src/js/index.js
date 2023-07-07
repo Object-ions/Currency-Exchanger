@@ -1,28 +1,6 @@
 import '../css/styles.css'
+import apiRequest from './apiRequest.js';
 
-function getRate(firstCurrencyVal, secondCurrencyVal, firstAmountVal) {
-    fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${firstCurrencyVal}`)
-        .then((response) => {
-            if (!response.ok) {
-                const errorMessage = `${response.status} ${response.statusText}`;
-                document.getElementById('main-head').innerText = errorMessage;
-                document.getElementById('main-p').innerText = 'ERROR';
-            } else {
-                return response.json();
-            }
-        })
-        .then((data) => {
-            let firstRate = data.conversion_rates[firstCurrencyVal];
-            let secondRate = data.conversion_rates[secondCurrencyVal];
-
-            let convertedAmount = (firstAmountVal / firstRate) * secondRate;
-            secondAmountEl.value = convertedAmount.toFixed(2);
-
-            document.getElementById('display-p').innerText = `1 ${firstCurrencyVal} = ${secondRate} ${secondCurrencyVal}`
-
-            manipDOM(data, firstCurrencyVal, firstRate, secondCurrencyVal, secondRate, firstAmountVal, convertedAmount);
-        })
-}
 
 //Get DOM elements
 let swipe = document.getElementById('swipe');
@@ -42,7 +20,18 @@ function calculate() {
     let firstAmountVal = firstAmountEl.value;
 
     //insert values to API
-    getRate(firstCurrencyVal, secondCurrencyVal, firstAmountVal);
+    apiRequest.getRate(firstCurrencyVal)
+        .then(function (data) {
+            let firstRate = data.conversion_rates[firstCurrencyVal];
+            let secondRate = data.conversion_rates[secondCurrencyVal];
+
+            let convertedAmount = (firstAmountVal / firstRate) * secondRate;
+            secondAmountEl.value = convertedAmount.toFixed(2);
+
+            document.getElementById('display-p').innerText = `1 ${firstCurrencyVal} = ${secondRate} ${secondCurrencyVal}`;
+
+            manipDOM(data);
+        })
 }
 
 //Manipulate the DOM
