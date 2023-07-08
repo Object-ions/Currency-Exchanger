@@ -1,7 +1,6 @@
 import '../css/styles.css'
 import apiRequest from './apiRequest.js';
 
-
 //Get DOM elements
 let swipe = document.getElementById('swipe');
 
@@ -19,24 +18,40 @@ function calculate() {
     //Get the value of the amount
     let firstAmountVal = firstAmountEl.value;
 
-    //insert values to API
-    apiRequest.getRate(firstCurrencyVal)
-        .then(function (data) {
-            let firstRate = data.conversion_rates[firstCurrencyVal];
-            let secondRate = data.conversion_rates[secondCurrencyVal];
+    //Get data from local storage
+    let checkData = JSON.parse(localStorage.getItem('dataConvertionRate'));
 
-            let convertedAmount = (firstAmountVal / firstRate) * secondRate;
-            secondAmountEl.value = convertedAmount.toFixed(2);
+    //If exist
+    if (checkData) {
+        let firstRate = checkData[firstCurrencyVal];
+        let secondRate = checkData[secondCurrencyVal];
 
-            document.getElementById('display-p').innerText = `1 ${firstCurrencyVal} = ${secondRate} ${secondCurrencyVal}`;
+        let convertedAmount = (firstAmountVal / firstRate) * secondRate;
+        secondAmountEl.value = convertedAmount.toFixed(2);
 
-            manipDOM(data);
-        })
-}
+        document.getElementById('display-p').innerText = `1 ${firstCurrencyVal} = ${secondRate} ${secondCurrencyVal}`;
 
-//Manipulate the DOM
-function manipDOM(data,) {
-    document.getElementById('date').innerText = data.time_last_update_utc;
+        //If not exist make API call
+    } else {
+        //insert values to API
+        apiRequest.getRate(firstCurrencyVal)
+            .then(function (data) {
+                if (data instanceof Error) {
+                    console.error(data);
+                    return;
+                }
+                let dataConvertionRate = data.conversion_rates;
+                //Store data as a string in local storage
+                localStorage.setItem('dataConvertionRate', JSON.stringify(dataConvertionRate));
+                let firstRate = dataConvertionRate[firstCurrencyVal];
+                let secondRate = dataConvertionRate[secondCurrencyVal];
+
+                let convertedAmount = (firstAmountVal / firstRate) * secondRate;
+                secondAmountEl.value = convertedAmount.toFixed(2);
+
+                document.getElementById('display-p').innerText = `1 ${firstCurrencyVal} = ${secondRate} ${secondCurrencyVal}`;
+            })
+    }
 }
 
 //Event listeners (update calc)
